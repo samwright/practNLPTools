@@ -96,7 +96,7 @@ class Annotator:
 		
 	def getAnnotationsAfterTagging(self,senna_tags,dep_parse=False):
 		annotations={}
-		senna_tags=map(lambda x: x.strip(),senna_tags.split("\n"))
+		senna_tags=[x.strip() for x in senna_tags.split("\n")]
 		no_verbs=len(senna_tags[0].split("\t"))-6
 		words=[]
 		pos=[]
@@ -122,7 +122,7 @@ class Annotator:
 			role={}
 			i=0
 			temp=""
-			curr_labels=map(lambda x: x[j],srls)
+			curr_labels=[x[j] for x in srls]
 			for curr_label in curr_labels:
 				splits=curr_label.split("-")
 				if(splits[0]=="S"):
@@ -165,11 +165,11 @@ class Annotator:
 			if("V" in role):
 				roles+=[role]
 		annotations['words']=words
-		annotations['pos']=zip(words,pos)
-		annotations['ner']=zip(words,ner)
+		annotations['pos']=list(zip(words,pos))
+		annotations['ner']=list(zip(words,ner))
 		annotations['srl']=roles
-		annotations['verbs']=filter(lambda x: x!="-",verb)
-		annotations['chunk']=zip(words,chunk)
+		annotations['verbs']=[x for x in verb if x!="-"]
+		annotations['chunk']=list(zip(words,chunk))
 		annotations['dep_parse']=""
 		annotations['syntax_tree']=""
 		for (w,s,p) in zip(words,syn,pos):
@@ -181,7 +181,7 @@ class Annotator:
 	def getAnnotations(self,sentence,dep_parse=False):
 		annotations={}
 		senna_tags=self.getSennaTag(sentence)
-		senna_tags=map(lambda x: x.strip(),senna_tags.split("\n"))
+		senna_tags=[x.strip() for x in senna_tags.split("\n")]
 		no_verbs=len(senna_tags[0].split("\t"))-6
 		words=[]
 		pos=[]
@@ -207,7 +207,7 @@ class Annotator:
 			role={}
 			i=0
 			temp=""
-			curr_labels=map(lambda x: x[j],srls)
+			curr_labels=[x[j] for x in srls]
 			for curr_label in curr_labels:
 				splits=curr_label.split("-")
 				if(splits[0]=="S"):
@@ -250,11 +250,11 @@ class Annotator:
 			if("V" in role):
 				roles+=[role]
 		annotations['words']=words
-		annotations['pos']=zip(words,pos)
-		annotations['ner']=zip(words,ner)
+		annotations['pos']=list(zip(words,pos))
+		annotations['ner']=list(zip(words,ner))
 		annotations['srl']=roles
-		annotations['verbs']=filter(lambda x: x!="-",verb)
-		annotations['chunk']=zip(words,chunk)
+		annotations['verbs']=[x for x in verb if x!="-"]
+		annotations['chunk']=list(zip(words,chunk))
 		annotations['dep_parse']=""
 		annotations['syntax_tree']=""
 		for (w,s,p) in zip(words,syn,pos):
@@ -264,7 +264,7 @@ class Annotator:
 			annotations['dep_parse']=self.getDependency(annotations['syntax_tree'])
 		return annotations			
 annotator=Annotator()
-print "ok"
-print annotator.getBatchAnnotations(["He killed the man with a knife and murdered him with a dagger.","He is a good boy."],dep_parse=True)
-print annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['dep_parse']
-print annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['chunk']
+print("ok")
+print(annotator.getBatchAnnotations(["He killed the man with a knife and murdered him with a dagger.","He is a good boy."],dep_parse=True))
+print(annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['dep_parse'])
+print(annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['chunk'])
