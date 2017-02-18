@@ -21,7 +21,13 @@ Features
 2. We use only dependency Extractor Component of Stanford Parser, which takes in Syntactic Parse from SENNA and applies dependency Extraction. So there is no need to load parsing models for Stanford Parser, which takes time.
 3. Easy to use.
 4. Platform Supported - Windows, Linux and Mac
-
+>Notes
+    SENNA pipeline has a fixed maximum size of the sentences that it can read.
+    By default it is 1024 token/sentence. If you have larger sentences, changing
+    the MAX_SENTENCE_SIZE value in SENNA_main.c should be considered and your
+    system specific binary should be rebuilt. Otherwise this could introduce
+    misalignment errors.
+    
 Installation
 =============
 
