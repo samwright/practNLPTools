@@ -1,3 +1,5 @@
+> This document and working will be updated for Python 3
+
 practNLPTools
 =============
 
