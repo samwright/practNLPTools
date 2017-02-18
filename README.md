@@ -101,6 +101,7 @@ To list the verbs for which semantic roles are found.
     '(S1(S(NP(PRP He))(VP(VP(VBD created)(NP(DT the)(NN robot)))(CC and)(VP(VBD broke)(NP(PRP it))(PP(IN after)(S(VP(VBG making)(NP(PRP it.)))))))))'
 ```
 'dep_parse' Returns dependency Relations as a string. Each relation is in new line. You may require some post processing on this.
+> Notes: dep_parse is may not work properly.
 ```python
     >>>print annotator.getAnnotations("He created the robot and broke it after making it.",dep_parse=True)['dep_parse']
     nsubj(created-2, He-1)
@@ -149,8 +150,8 @@ Go to folder practnlptools
    
 You might receive following Error while running:
 > There no problem for Python 3 follow the same instruction.
-```python
 
+```python
  Traceback (most recent call last):
  File "test.py", line 3, in <module>
     print a.getAnnotations("This is a test.")
@@ -168,4 +169,5 @@ OSError: [Errno 13] Permission denied
 To Fix this,you can do:
 ```shell
   chmod -R +x /usr/local/lib/python3.5/dist-packages/practnlptools/
+
  ```
