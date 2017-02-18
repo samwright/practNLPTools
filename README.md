@@ -148,6 +148,7 @@ Go to folder practnlptools
 4. Issues with "pip install practnlptools"
    
 You might receive following Error while running:
+> There no problem for Python 3 follow the same instruction.
 ```python
 
  Traceback (most recent call last):
@@ -166,5 +167,5 @@ OSError: [Errno 13] Permission denied
 
 To Fix this,you can do:
 ```shell
-  chmod -R +x /usr/local/lib/python2.7/dist-packages/practnlptools/
+  chmod -R +x /usr/local/lib/python3.5/dist-packages/practnlptools/
  ```
