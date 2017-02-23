@@ -58,10 +58,10 @@ Chunk and NER use BIOS Tagging Scheme. Which expands to:
 
 Example:
   ('Biplab', 'S-NP'), ('is', 'S-VP'), ('a', 'B-NP'), ('good', 'I-NP'), ('boy', 'E-NP'), ('.', 'O')
-  
+  ('Republican', 'B-NP'), ('candidate', 'I-NP'), ('George', 'I-NP'), ('Bush', 'E-NP'), ('was', 'S-VP'), ('great', 'S-ADJP'), ('.', 'O')
   means:
   
-  [Biplab]NP [is]VP [a good boy]NP [.]O
+  [Republican]NP [candidate]NP [a good boy]NP [George]NP [Bush]NP [was]VP [great]ADJP
   
 
 Annotator is the only class you need. Create an annotator object.
@@ -109,7 +109,7 @@ To list the verbs for which semantic roles are found.
 'dep_parse' Returns dependency Relations as a string. Each relation is in new line. You may require some post processing on this.
 > Notes: dep_parse is may not work properly.
 ```python
-    >>>print annotator.getAnnotations("He created the robot and broke it after making it.",dep_parse=True)['dep_parse']
+    >>> annotator.getAnnotations("He created the robot and broke it after making it.",dep_parse=True)['dep_parse']
     nsubj(created-2, He-1)
     root(ROOT-0, created-2)
     det(robot-4, the-3)
@@ -161,13 +161,13 @@ You might receive following Error while running:
  Traceback (most recent call last):
  File "test.py", line 3, in <module>
     print a.getAnnotations("This is a test.")
-  File "/usr/local/lib/python2.7/dist-packages/practnlptools/tools.py", line 206, in getAnnotations
+  File "/usr/local/lib/python3.5/dist-packages/practnlptools/tools.py", line 206, in getAnnotations
     senna_tags=self.getSennaTag(sentence)
-  File "/usr/local/lib/python2.7/dist-packages/practnlptools/tools.py", line 88, in getSennaTag
+  File "/usr/local/lib/python3.5/dist-packages/practnlptools/tools.py", line 88, in getSennaTag
     p = subprocess.Popen(senna_executable,stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-  File "/usr/lib/python2.7/subprocess.py", line 679, in __init__
+  File "/usr/lib/python3.5/subprocess.py", line 679, in __init__
     errread, errwrite)
-  File "/usr/lib/python2.7/subprocess.py", line 1249, in _execute_child
+  File "/usr/lib/python3.5/subprocess.py", line 1249, in _execute_child
     raise child_exception
 OSError: [Errno 13] Permission denied
 ```
