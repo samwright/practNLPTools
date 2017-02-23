@@ -4,7 +4,7 @@
 # Copyright (C) 2014 PractNLP Project
 # Original Author: Biplab Ch Das' <bipla12@cse.iitb.ac.in>
 # URL: <http://www.cse.iitb.ac.in/biplab12>
-# Additional Author: Jawahar S <jawahar273@gmail.com>
+# Current Author: Jawahar S <jawahar273@gmail.com>
 # URL: <jawahar273.gitbooks.io>
 # For license information, see LICENSE.TXT
 
