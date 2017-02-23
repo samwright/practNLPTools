@@ -21,6 +21,7 @@ Features
 2. We use only dependency Extractor Component of Stanford Parser, which takes in Syntactic Parse from SENNA and applies dependency Extraction. So there is no need to load parsing models for Stanford Parser, which takes time.
 3. Easy to use.
 4. Platform Supported - Windows, Linux and Mac
+
 >Notes
     SENNA pipeline has a fixed maximum size of the sentences that it can read.
     By default it is 1024 token/sentence. If you have larger sentences, changing
@@ -37,13 +38,13 @@ A computer with 500mb memory, Java Runtime Environment (1.7 preferably, works wi
 If you are in linux:
 run:
 ```
- sudo python setup.py install 
+sudo python setup.py install 
 ```
 If you are in windows:
 run this commands as administrator:
 
 ```
-    python setup.py install
+python setup.py install
 ```  
 
 Examples
@@ -155,8 +156,8 @@ Go to folder practnlptools
     python setup.py install
 ```
 3. Any other, you can la la laa la laaaa to  biplab12  (A T) cse d0t iitb d0t ac d0t in 
-4. Issues with "pip install practnlptools"
-   
+4. Issues with "pip install practnlptools" <- this only for original tool 
+   
 You might receive following Error while running:
 > There no problem for Python 3 follow the same instruction.
 
