@@ -22,8 +22,8 @@ Features
 3. Easy to use.
 4. Platform Supported - Windows, Linux and Mac
 
->Notes
-    SENNA pipeline has a fixed maximum size of the sentences that it can read.
+>Notes:
+  SENNA pipeline has a fixed maximum size of the sentences that it can read.
     By default it is 1024 token/sentence. If you have larger sentences, changing
     the MAX_SENTENCE_SIZE value in SENNA_main.c should be considered and your
     system specific binary should be rebuilt. Otherwise this could introduce
@@ -111,7 +111,9 @@ To list the verbs for which semantic roles are found.
     '(S1(S(NP(PRP He))(VP(VP(VBD created)(NP(DT the)(NN robot)))(CC and)(VP(VBD broke)(NP(PRP it))(PP(IN after)(S(VP(VBG making)(NP(PRP it.)))))))))'
 ```
 'dep_parse' Returns dependency Relations as a string. Each relation is in new line. You may require some post processing on this.
+
 > Notes: dep_parse is may not work properly.
+
 ```python
 >>> annotator.getAnnotations("He created the robot and broke it after making it.",dep_parse=True)['dep_parse']
     nsubj(created-2, He-1)
@@ -158,6 +160,7 @@ Go to folder practnlptools
 3. Any other, you can la la laa la laaaa to  biplab12  (A T) cse d0t iitb d0t ac d0t in 
 4. Issues with "pip install practnlptools" <- this only for original tool 
    
+  
 You might receive following Error while running:
 > There no problem for Python 3 follow the same instruction.
 
