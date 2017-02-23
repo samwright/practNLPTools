@@ -157,8 +157,8 @@ Go to folder practnlptools
     *windows: I never compiled C files in Windows.*
     python setup.py install
 ```
-3. Any other, you can la la laa la laaaa to  biplab12  (A T) cse d0t iitb d0t ac d0t in 
-4. Issues with "pip install practnlptools" <- this only for original tool 
+3. Any other, you can la la laa la laaaa to  biplab12  (A T) cse d0t iitb d0t ac d0t in or Jawahar273@gmail.com
+4. Issues with "pip install practnlptools" <- **this only for original tool**
    
   
 You might receive following Error while running:
