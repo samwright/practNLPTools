@@ -1,6 +1,11 @@
-> This document and working will be updated for Python 3
+
 
 practNLPTools
+
+![Author](https://img.shields.io/badge/Author-jawahar-blue.svg)
+![Python-version](https://img.shields.io/badge/Python%20Version-Python--2.7-red.svg) to
+![Python-version](https://img.shields.io/badge/Python%20Version-Python--3.5-green.svg)
+
 =============
 
 Practical Natural Language Processing Tools for Humans.<br>
