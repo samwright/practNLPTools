@@ -9,8 +9,11 @@ practNLPTools is a pythonic library over SENNA and Stanford Dependency Extractor
 Functionality
 =============
 1. Semantic Role Labeling
-3. Part of Speech Tagging (POS Tagging)
-4. Named Entity Recognisation (NER)
+* Syntactic Parsing
+* Part of Speech Tagging (POS Tagging)
+* Named Entity Recognisation (NER)
+* Dependency Parsing
+* Shallow Chunking
 
 Features
 =============
