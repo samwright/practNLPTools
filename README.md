@@ -168,7 +168,7 @@ Go to folder practnlptools
    
   
 You might receive following Error while running:
-> There no problem for Python 3 follow the same instruction.
+> This is not possible until a proper package release in PyPi.
 
 ```python
  Traceback (most recent call last):
