@@ -1,6 +1,7 @@
 
 
-#practNLPTools
+practNLPTools
+==============
 
 ![Author](https://img.shields.io/badge/Author-jawahar-blue.svg)
 ![Python-version](https://img.shields.io/badge/Python%20Version-Python--2.7-red.svg) 
@@ -119,6 +120,8 @@ To list the verbs for which semantic roles are found.
 
 > Notes: dep_parse may not work properly if stanford dependency parser is not present in practnlptools folder.
 To change in the output format from edit `lexparser.sh` if you know what you are doing
+
+To know about `outputformat` see the Stanford Parser FAQ [link](https://nlp.stanford.edu/software/parser-faq.shtml#u) and manuall [link](https://nlp.stanford.edu/software/dependencies_manual.pdf).
 ```python
 >>> annotator.getAnnotations("He created the robot and broke it after making it.",dep_parse=True)['dep_parse']
     nsubj(created-2, He-1)
