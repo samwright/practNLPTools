@@ -7,14 +7,13 @@
 ![Python-version](https://img.shields.io/badge/from-to-yellowgreen.svg) 
 ![Python-version](https://img.shields.io/badge/Python%20Version-Python--3.5-green.svg)
 
-=============
 
 Practical Natural Language Processing Tools for Humans.<br>
 practNLPTools is a pythonic library over SENNA and Stanford Dependency Extractor.
 
 Functionality
 =============
-1. Semantic Role Labeling
+* Semantic Role Labeling
 * Syntactic Parsing
 * Part of Speech Tagging (POS Tagging)
 * Named Entity Recognisation (NER)
@@ -118,8 +117,8 @@ To list the verbs for which semantic roles are found.
 ```
 'dep_parse' Returns dependency Relations as a string. Each relation is in new line. You may require some post processing on this.
 
-> Notes: dep_parse is may not work properly.
-
+> Notes: dep_parse may not work properly if stanford dependency parser is not present in practnlptools folder.
+To change in the output format from edit `lexparser.sh` if you know what you are doing
 ```python
 >>> annotator.getAnnotations("He created the robot and broke it after making it.",dep_parse=True)['dep_parse']
     nsubj(created-2, He-1)
