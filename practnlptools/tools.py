@@ -5,6 +5,7 @@
 # Original Author: Biplab Ch Das' <bipla12@cse.iitb.ac.in>
 # Current Author: Jawahar S <jawahar273@gmail.com>
 # URL: <http://www.cse.iitb.ac.in/biplab12>
+# URL: http://jawahar273.gitbooks.io (or) http://github.com/jawahar273
 # For license information, see LICENSE.TXT
 
 """
@@ -42,15 +43,11 @@ class Annotator:
     misalignment errors.
 
     Example:
-    """
-	def getSennaTagBatch(self,sentences):
-		input_data=""
-		for sentence in sentences:
-			input_data+=sentence+"\n"
-		input_data=input_data[:-1]
-		package_directory = os.path.dirname(os.path.abspath(__file__))
-		os_name = system()
-		executable=""
+    """ 
+	def get_cos_name(self, os_name):
+		""""
+		get the executable binary with respect to the Os name.
+		"""
 		if os_name == 'Linux':
 		    bits = architecture()[0]
 		    if bits == '64bit':
@@ -63,6 +60,16 @@ class Annotator:
 		    executable='senna-win32.exe'
 		if os_name == 'Darwin':
 		    executable='senna-osx'
+		return executable
+
+	def getSennaTagBatch(self,sentences):
+		input_data=""
+		for sentence in sentences:
+			input_data+=sentence+"\n"
+		input_data=input_data[:-1]
+		package_directory = os.path.dirname(os.path.abspath(__file__))
+		os_name = system()
+		executable=self.get_cos_name(os_name)
 		senna_executable = os.path.join(package_directory,executable)
 		cwd=os.getcwd()
 		os.chdir(package_directory)
@@ -75,19 +82,7 @@ class Annotator:
 		input_data=sentence
 		package_directory = os.path.dirname(os.path.abspath(__file__))
 		os_name = system()
-		executable=""
-		if os_name == 'Linux':
-		    bits = architecture()[0]
-		    if bits == '64bit':
-		    	executable='senna-linux64'
-		    elif bits == '32bit':
-			    executable='senna-linux32'
-		    else:
-			    executable='senna'
-		if os_name == 'Windows':
-		    executable='senna-win32.exe'
-		if os_name == 'Darwin':
-		    executable='senna-osx'
+		executable=self.get_cos_name(os_name)
 		senna_executable = os.path.join(package_directory,executable)
 		cwd=os.getcwd()
 		os.chdir(package_directory)
@@ -95,13 +90,14 @@ class Annotator:
 		senna_stdout = p.communicate(input=input_data.encode('utf-8'))[0]
 		os.chdir(cwd)
 		return senna_stdout
+
 	def getDependency(self,parse):
 		package_directory = os.path.dirname(os.path.abspath(__file__))
 		cwd=os.getcwd()
 		os.chdir(package_directory)
 		with open(cwd+"/in.parse","w", encoding='utf-8') as parsefile:
 		     parsefile.write(parse)
-		p=subprocess.Popen(['java','-cp','stanford-parser.jar', 'edu.stanford.nlp.trees.EnglishGrammaticalStructure', '-treeFile', cwd+'/in.parse','-collapsed'],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+		p=subprocess.Popen(['java','-cp','stanford-parser.jar', 'edu.stanford.nlp.trees.EnglishGrammaticalStructure', '-treeFile', '{}/in.parse'.format(cwd),'-collapsed'],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 		p.wait()	
 		stanford_out=p.stdout.read()
 		os.chdir(cwd)
@@ -209,6 +205,7 @@ class Annotator:
 		if(dep_parse):
 			annotations['dep_parse']=self.getDependency(annotations['syntax_tree'])
 		return annotations		
+
 	def getAnnotations(self,sentence,dep_parse=False):
 		annotations={}
 		senna_tags=self.getSennaTag(sentence).decode()
@@ -296,17 +293,16 @@ class Annotator:
 		return annotations
 def test():			
 	annotator=Annotator()
-	#print((annotator.getBatchAnnotations(["He killed the man with a knife and murdered him with a dagger.","He is a good boy."],dep_parse=True)))
-	#"""
+	print((annotator.getBatchAnnotations(["He killed the man with a knife and murdered him with a dagger.","He is a good boy."],dep_parse=True)))
+	"""
 	print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['dep_parse']))
 	print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['chunk']))
-	print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['pos']))
+	#print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['pos']))
 	print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['ner']))
-	print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['srl']))
-	print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['syntax_tree']))
-	print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['words']))
+	#print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['srl']))
+	#print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['syntax_tree']))
+	#print((annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['words']))
 	#"""
 
 if __name__ == "__main__":
 	test()
-
