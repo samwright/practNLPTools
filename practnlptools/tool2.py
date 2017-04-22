@@ -292,7 +292,6 @@ def test(dep_model="", sent=""):
     executable = self.get_cos_name(os_name)
     #senna_executable = os.path.join(package_directory,executable)    
     annotator = Annotator(package_directory, dep_model)
-    
     """
     print((annotator.getAnnotations(\
      ["He killed the man with a knife and murdered him with a dagger.",\
