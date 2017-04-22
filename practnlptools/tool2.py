@@ -288,9 +288,7 @@ def test(dep_model="", sent=""):
      :dep_model: stanford dependency parser model location
     """
     #from pntl.utils import skipgrams
-    package_directory = os.path.dirname(os.path.abspath(__file__))
-    executable = self.get_cos_name(os_name)
-    #senna_executable = os.path.join(package_directory,executable)    
+    package_directory = os.path.dirname(os.path.abspath(__file__)) 
     annotator = Annotator(package_directory, dep_model)
     """
     print((annotator.getAnnotations(\
