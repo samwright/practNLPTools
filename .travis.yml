@@ -11,13 +11,12 @@ matrix:
   allow_failures:
     - python: "2.7"
   include:
-   - os: linux
+   - os: 
+      - linux
+      - osx
      dist: trusty
      sudo: required
-   
-  include:
-   - os: osx
-     sudo: required
+
 
 before_install:
 #- sudo apt-get update
