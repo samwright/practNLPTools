@@ -23,6 +23,7 @@ before_install:
 install: 
  - python setup.py install
  - python3 setup.py install
+ 
 script: 
  - python practnlptools/tool2.py
  - python3 practnlptools/tool2.py 
