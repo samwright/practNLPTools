@@ -281,14 +281,14 @@ class Annotator:
         return annotations
 
 
-def test(senna_path=".", dep_model="", sent=""):  
+def test(dep_model="", sent=""):  
     """
      please replace the path of yours environment(accouding to OS path)
      :senna_path: path for senna location
      :dep_model: stanford dependency parser model location
     """
     #from pntl.utils import skipgrams
-    annotator = Annotator(senna_path, dep_model)
+    annotator = Annotator(os.path.abspath(__file__), dep_model)
     
     """
     print((annotator.getAnnotations(\
