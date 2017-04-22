@@ -290,8 +290,8 @@ def test(dep_model="", sent=""):
     #from pntl.utils import skipgrams
     package_directory = os.path.dirname(os.path.abspath(__file__))
     executable = self.get_cos_name(os_name)
-    senna_executable = os.path.join(package_directory,executable)    
-    annotator = Annotator(senna_executable, dep_model)
+    #senna_executable = os.path.join(package_directory,executable)    
+    annotator = Annotator(package_directory, dep_model)
     
     """
     print((annotator.getAnnotations(\
