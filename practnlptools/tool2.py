@@ -55,7 +55,7 @@ class Annotator:
         :dep_model: Stanford dependencie mode
         """
         self.senna_path = senna_path+os.path.sep
-        self.dep_par_path = os.getcwd()+os.path.sep
+        self.dep_par_path = os.getcwd()+os.path.sep+"pntl"+os.path.sep
 
         if dep_model:
             self.dep_par_model = dep_model
