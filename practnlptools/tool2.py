@@ -347,6 +347,8 @@ def test(senna_path="/media/jawahar/jon/ubuntu/senna", sent="", dep_model="", ba
     :parama bool batch: makeing as batch process with one or more sentense passing
     :parama str jar_path: location of stanford-parser.jar file
     """
+    senna_path=""
+    jar_path=""
     #from pntl.utils import skipgrams
     annotator = Annotator(senna_path, dep_model, jar_path)
     if not sent:
