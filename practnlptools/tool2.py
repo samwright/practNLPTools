@@ -347,7 +347,7 @@ def test(senna_path="/media/jawahar/jon/ubuntu/senna", sent="", dep_model="", ba
     :parama bool batch: makeing as batch process with one or more sentense passing
     :parama str jar_path: location of stanford-parser.jar file
     """
-    from pntl.utils import skipgrams
+    #from pntl.utils import skipgrams
     annotator = Annotator(senna_path, dep_model, jar_path)
     if not sent:
         if not batch:
@@ -361,7 +361,7 @@ def test(senna_path="/media/jawahar/jon/ubuntu/senna", sent="", dep_model="", ba
             print('srl:\n', (annotator.getAnnotations(sent, dep_parse=True)['srl']))
             print('syntax tree:\n', (annotator.getAnnotations(sent, dep_parse=True)['syntax_tree']))
             print('words:\n', (annotator.getAnnotations(sent, dep_parse=True)['words']))
-            print('skip gram\n', list(skipgrams(sent, n=3, k=2)))
+            #print('skip gram\n', list(skipgrams(sent, n=3, k=2)))
         else:
             sent = ["He killed the man with a knife and murdered him with a dagger.",\
                 "He is a good boy.", "He created the robot and broke it after making it."]
