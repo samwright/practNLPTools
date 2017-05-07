@@ -49,7 +49,7 @@ class Annotator:
         if jar_path:
             self.dep_par_path = jar_path+os.path.sep
         else:
-            self.dep_par_path = __file__+os.path.sep+"pntl"+os.path
+            self.dep_par_path = __file__+os.path.sep+os.path
 
         if dep_model:
             self.dep_par_model = dep_model
