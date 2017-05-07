@@ -42,10 +42,10 @@ class Annotator:
         """
         init function of Annotator class
         """
-        self.senna_path = senna_path+os.path.sep
+        self.senna_path = ""
         self.dep_par_path = None
         self.dep_par_model = None
-
+        jar_path = False
         if jar_path:
             self.dep_par_path = jar_path+os.path.sep
         else:
