@@ -2,12 +2,11 @@ from distutils.core import setup
 from distutils.command.install import INSTALL_SCHEMES
 files = ["practnlptools/*"]
 import os
+
 def walkdir(dirname):
-    rec_files=[]
-    for cur, _dirs, files in os.walk(dirname):
-    	rec_files+=[(cur,map(lambda f: os.path.join(cur,f),files))]
-    #print rec_files
-    return rec_files
+    return [(cur, [os.path.join(cur, filename) for filename in filenames])
+            for cur, _dirs, filenames in os.walk(dirname)]
+
 #walkdir("practnlp")
 for scheme in INSTALL_SCHEMES.values():
     scheme['data'] = scheme['purelib']
@@ -20,7 +19,7 @@ setup(name = "practNLPTools",
     url = "jawahar273.gitbooks.io",
     #Name the folder where your packages live:
     #(If you have other packages (dirs) or modules (py files) then
-    #put them into the package directory - they will be found 
+    #put them into the package directory - they will be found
     #recursively.)
     packages = ['practnlptools'],
     #'package' package must contain files (see list above)
@@ -34,5 +33,5 @@ setup(name = "practNLPTools",
     data_files = walkdir('practnlptools')
     #
     #This next part it for the Cheese Shop, look a little down the page.
-    #classifiers = []    
+    #classifiers = []
 )
